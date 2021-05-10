@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MISA.AMIS.Core.Properties {
+namespace MISA.AMIS.Api.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace MISA.AMIS.Core.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MISA.AMIS.Core.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MISA.AMIS.Api.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,16 +61,16 @@ namespace MISA.AMIS.Core.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mã nhân viên không được phép để trống.
+        ///   Looks up a localized string similar to EmployeeCode.
         /// </summary>
-        internal static string devMsg {
+        internal static string Data {
             get {
-                return ResourceManager.GetString("devMsg", resourceCulture);
+                return ResourceManager.GetString("Data", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 001.
+        ///   Looks up a localized string similar to 002.
         /// </summary>
         internal static string MISACode {
             get {
@@ -79,20 +79,11 @@ namespace MISA.AMIS.Core.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to có số lượng ký tự vượt quá.
+        ///   Looks up a localized string similar to Có lỗi xảy ra vui lòng liên hệ MISA.
         /// </summary>
-        internal static string Msg_Error_MaxLength {
+        internal static string userMsg {
             get {
-                return ResourceManager.GetString("Msg_Error_MaxLength", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to không được phép để trống!.
-        /// </summary>
-        internal static string Msg_Error_Requied {
-            get {
-                return ResourceManager.GetString("Msg_Error_Requied", resourceCulture);
+                return ResourceManager.GetString("userMsg", resourceCulture);
             }
         }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MISA.AMIS.Core.Exceptions
 {
-    class EmployeeException:Exception
+    public class EmployeeException:Exception
     {
         public  EmployeeException(string msg) : base(msg)
         {
@@ -24,10 +24,10 @@ namespace MISA.AMIS.Core.Exceptions
             {
                 var response = new
                 {
-                    devMsg = "Mã nhân viên không được phép để trống",
-                    MISACode = "001"
+                    devMsg = Properties.Resources.devMsg,
+                    MISACode = Properties.Resources.MISACode
                 };
-                throw new EmployeeException("Mã nhân viên không được phép để trống.");
+                throw new EmployeeException(Properties.Resources.devMsg);
             }
         }
     }

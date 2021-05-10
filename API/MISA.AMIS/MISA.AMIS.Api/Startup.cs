@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -7,9 +9,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MISA.AMIS.Api.Middware;
+using MISA.AMIS.Core.Exceptions;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace MISA.AMIS.Api
@@ -43,6 +49,44 @@ namespace MISA.AMIS.Api
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MISA.AMIS.Api v1"));
             }
+
+            // Hook in the global error-handling middleware
+            app.UseMiddleware(typeof(ErrorHandlingMiddleware));
+            app.UseExceptionHandler(c => c.Run(async context =>
+            {
+
+                var exception = context.Features
+                    .Get<IExceptionHandlerPathFeature>()
+                    .Error;
+                if (exception is EmployeeException)
+                {
+
+                    var response = new
+                    {
+                        devMsg = exception.Message,
+                        userMsg = Properties.Resources.userMsg,
+                        MISACode = Properties.Resources.MISACode,
+                        Data = Properties.Resources.Data,
+                    };
+                    var result = JsonConvert.SerializeObject(response);
+                    context.Response.ContentType = "application/json";
+                    context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    //var jsonObject = JsonConvert.SerializeObject(My Custom Model);
+                    await context.Response.WriteAsJsonAsync(response);
+                }
+                else
+                {
+                    var response = new
+                    {
+                        devMsg = exception.Message,
+                        userMsg = Properties.Resources.userMsg,
+                        MISACode = Properties.Resources.MISACode,
+                        Data = exception
+                    };
+                    await context.Response.WriteAsJsonAsync(response);
+                }
+
+            }));
 
             app.UseHttpsRedirection();
 
