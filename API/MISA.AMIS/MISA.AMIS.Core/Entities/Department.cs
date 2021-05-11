@@ -19,13 +19,6 @@ namespace MISA.AMIS.Core.Entities
         public Guid? DepartmentId { get; set; }
 
         /// <summary>
-        /// Mã phòng ban
-        /// </summary>
-        [MISARequired] // validate chuỗi rỗng
-        [MISAMaxLength(20, msg: "")] // validate độ dài tối đa nhập vào
-        public string DepartmentCode { get; set; }
-
-        /// <summary>
         /// Tên phòng ban
         /// </summary>
         [MISARequired] // validate chuỗi rỗng

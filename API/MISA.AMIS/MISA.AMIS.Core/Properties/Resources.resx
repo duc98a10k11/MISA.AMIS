@@ -123,6 +123,9 @@
   <data name="MISACode" xml:space="preserve">
     <value>001</value>
   </data>
+  <data name="Msg_Code_Exist" xml:space="preserve">
+    <value>Mã nhân viên bị trùng</value>
+  </data>
   <data name="Msg_Error_MaxLength" xml:space="preserve">
     <value>có số lượng ký tự vượt quá</value>
   </data>

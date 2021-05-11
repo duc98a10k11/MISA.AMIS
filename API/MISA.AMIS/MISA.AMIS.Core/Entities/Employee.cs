@@ -29,7 +29,7 @@ namespace MISA.AMIS.Core.Entities
         /// Họ và tên
         /// </summary>
         [MISARequired] // validate chuỗi rỗng
-        public string FullName { get; set; }
+        public string EmployeeName { get; set; }
 
         /// <summary>
         /// Ngày sinh
@@ -69,14 +69,9 @@ namespace MISA.AMIS.Core.Entities
         public string PhoneNumber { get; set; }
 
         /// <summary>
-        /// số tài khoản ngân hàng
-        /// </summary>
-        public string AccountNumber { get; set; }
-
-        /// <summary>
         /// Tên vị trí, chức vụ
         /// </summary>
-        public string PositionName { get; set; }
+        public string EmployeePosition { get; set; }
 
         /// <summary>
         /// Địa chỉ
@@ -87,6 +82,31 @@ namespace MISA.AMIS.Core.Entities
         /// id phòng ban
         /// </summary>
         public Guid? DepartmentId { get; set; }
+
+        /// <summary>
+        /// Số tài khoản ngân hàng
+        /// </summary>
+        public string BankAccountNumber { get; set; }
+
+        /// <summary>
+        /// Tên ngân hàng
+        /// </summary>
+        public string BankName { get; set; }
+
+        /// <summary>
+        /// Tên chi nhánh
+        /// </summary>
+        public string BankBranchName { get; set; }
+
+        /// <summary>
+        /// tên tỉnh thành phố ngân hàng trực thuộc
+        /// </summary>
+        public string BankProvinceName { get; set; }
+
+        /// <summary>
+        /// Điện thoại bàn
+        /// </summary>
+        public string TelephoneNumber { get; set; }
 
         /// <summary>
         /// Ngày tạo

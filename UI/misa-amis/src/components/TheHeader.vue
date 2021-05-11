@@ -197,7 +197,9 @@
     padding-right: 16px;
 }
 
-@media only screen and (min-width: 1024px) {
+
+/* resposive */
+@media only screen and (max-width: 1024px) {
     input{
         display: flex;
         align-items: center;

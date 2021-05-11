@@ -79,6 +79,15 @@ namespace MISA.AMIS.Core.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mã nhân viên bị trùng.
+        /// </summary>
+        internal static string Msg_Code_Exist {
+            get {
+                return ResourceManager.GetString("Msg_Code_Exist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to có số lượng ký tự vượt quá.
         /// </summary>
         internal static string Msg_Error_MaxLength {

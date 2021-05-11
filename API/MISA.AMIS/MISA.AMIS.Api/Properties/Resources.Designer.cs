@@ -79,6 +79,15 @@ namespace MISA.AMIS.Api.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Xóa thành công!.
+        /// </summary>
+        internal static string Msg_Delete_Success {
+            get {
+                return ResourceManager.GetString("Msg_Delete_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Có lỗi xảy ra vui lòng liên hệ MISA.
         /// </summary>
         internal static string userMsg {

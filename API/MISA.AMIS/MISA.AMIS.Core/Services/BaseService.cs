@@ -130,5 +130,16 @@ namespace MISA.AMIS.Core.Services
             Validate(entity);
             return _baseRepository.Update(entityId, entity);
         }
+        /// <summary>
+        /// Phân trang đối tượng.
+        /// </summary>
+        /// <param name="pageSize">số đối tượng trên 1 trang.</param>
+        /// <param name="pageIndex">Trang số bao nhiêu.</param>
+        /// <returns>Mảng danh sách đối tượng</returns>
+        /// CreatedBy: LMDuc (07/05/2021)
+        public IEnumerable<MISAEntity> GetMISAEntities(int pageSize, int pageIndex)
+        {
+            return _baseRepository.GetMISAEntities(pageSize, pageIndex);
+        }
     }
 }

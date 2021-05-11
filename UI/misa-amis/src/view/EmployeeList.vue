@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="container">
-            <div class="container-item">
+            <div class="container-item fix-item">
                 <div class="btn-extention-box">
                     <button class="btn-extention btn-container">Thực hiện hàng loạt</button>
                     <div class="icon-extention"></div>
@@ -47,7 +47,7 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th><input type="checkbox" name="" id=""></th>
+                            <th class="check-box-table"><input type="checkbox" name="" id=""></th>
                             <th>Mã nhân viên</th>
                             <th>Tên nhân viên</th>
                             <th>Giới tính</th>
@@ -56,27 +56,117 @@
                             <th>Ngày cấp</th>
                             <th>Nơi cấp</th>
                             <th>Chức danh</th>
-                            <th>Mã đơn vị</th>
-                            <th>Tên đơn vị</th>
+                            <!-- <th>Mã đơn vị</th> -->
+                            <!-- <th>Tên đơn vị</th> -->
+                            <!-- <th>Nhóm KH, NCC</th>
+                            <th>TK công nợ phải thu</th>
+                            <th>TK công nợ phải trả</th> -->
+                            <th>Số tài khoản</th>
+                            <th>Tên ngân hàng</th>
+                            <th>Chi nhánh TK ngân hàng</th>
+                            <th>Tỉnh/TP ngân hàng</th>
+                            <th>Địa chỉ</th>
+                            <th>ĐT di động</th>
+                            <th>ĐT cố định</th>
+                            <th>Email</th>
+                            <!-- <th>Là khách hàng</th>
+                            <th>Là nhà cung cấp</th> -->
+                            <th class="th-view-right">Chức năng</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody v-for="employee of employees" :key="employee.EmployeeId">
                         <tr>
-                            <td scope="row"></td>
-                            <td></td>
-                            <td></td>
+                            <td scope="row" class="check-box-table"><input type="checkbox" name="" id=""></td>
+                            <td>{{employee.employeeCode}}</td>
+                            <td>{{employee.employeeName}}</td>
+                            <td>{{employee.gender}}</td>
+                            <td>{{employee.dateOfBirth || formatDateDDMMYYYY}}</td>
+                            <td>{{employee.indentifyNumber}}</td>
+                            <td>{{employee.dateOfIndentify ||formatDateDDMMYYYY}}</td>
+                            <td>{{employee.placeOfIdentify}}</td>
+                            <td>{{employee.employeePosition}}</td>
+                            <td>{{employee.bankAccountNumber}}</td>
+                            <td>{{employee.bankName}}</td>
+                            <td>{{employee.bankBranchName}}</td>
+                            <td>{{employee.bankProvinceName}}</td>
+                            <td>{{employee.address}}</td>
+                            <td>{{employee.phoneNumber}}</td>
+                            <td>{{employee.telephoneNumber}}</td>
+                            <td>{{employee.email}}</td>
+                            
+                            <td class="th-view-right"></td>
                         </tr>
-                        <tr>
-                            <td scope="row"></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                         
                     </tbody>
                 </table>
+                 
+            </div>
+           <div class="fix-item">
+                    <div class="total-record">Tổng số: <b class="number-record">11</b> bản ghi</div>
+                    <div class="fix-item-right">
+                        <div class="select-paging">
+                            <select class="paging-selected" name="paging" id="">
+                                <option value="10">10 bản ghi trên 1 trang</option>
+                                <option value="20">20 bản ghi trên 1 trang</option>
+                                <option value="30">30 bản ghi trên 1 trang</option>
+                                <option value="50">50 bản ghi trên 1 trang</option>
+                                <option value="100">100 bản ghi trên 1 trang</option>
+                            </select>   
+                        </div>
+                        <button class="btn-pre btn-paging">Trước</button>
+                        <button class="btn-paging btn-page">1</button>
+                        <button class="btn-next btn-paging">Sau</button>
+                    </div>
+                    
             </div>
         </div>
     </div>
 </template>
+
+<script>
+    import axios from 'axios'
+// import Popup from './Popup.vue'
+export default {
+  components: {
+    // Popup
+  },
+  created () {
+    this.getEmployee()
+  },
+  data: function () {
+    return {
+      isShow: false,
+      employees: []
+    }
+  },
+  filters:{
+      formatDateDDMMYYYY(date) {
+            if (!date) {
+                return "";
+            }
+            var newDate = new Date(date);
+            var dateString = newDate.getDate();
+            var monthString = newDate.getMonth() + 1;
+            var year = newDate.getFullYear();
+            if (dateString < 10) {
+                dateString = "0" + dateString;
+            }
+            if (monthString < 10) {
+                monthString = "0" + monthString;
+            }
+            return `${dateString}/${monthString}/${year}`;
+        }
+  },
+  methods: {
+    getEmployee () {
+      axios.get('https://localhost:44320/api/v1/Employees').then(res => {
+        this.employees = res.data
+        console.log(res.data)
+      })
+    }
+  }
+}
+</script>
 
 <style>
  @font-face {
@@ -114,7 +204,7 @@ button{
     font-size: 13px;
     box-sizing: border-box;
     height: calc(100vh - 48px);
-    
+    width: calc(100vw - 18vw);
 }
 .content-employee .title-box{
     padding: 22px 0px 16px 0px ;
@@ -135,7 +225,7 @@ button{
     padding: 0 16px;
      background-color: #2CA01C;
     border: 1px solid #bbbbbb;
-
+    cursor: pointer;
 }
 .content-employee .title .title-right .btn-box{
     height: 36px;
@@ -145,13 +235,14 @@ button{
     background: none;
     padding-right: 10px;
     border-right: 1px solid #bbb;
+    cursor: pointer;
 }
 .content-employee .title .title-right .btn-add-excel{
     height: 14px;
     width: 14px;
     margin-left: 10px;
     padding:  0 8px 0px 10px ;
-
+    cursor: pointer;
     color: black;
     box-sizing: border-box;
     border: none;
@@ -173,6 +264,7 @@ button{
     line-height: 36px;
     margin-right: 16px;
     display: flex;
+    cursor: pointer;
 }
 .content-employee .btn-extention{
     border: none;
@@ -189,11 +281,46 @@ button{
 .content-employee .container{
     background-color:#ffffff;
     /* margin: 0 30px 0 20px; */
-    
-    height: calc(100% - 96px);
+    overflow: scroll;
+    padding: 0px 10px 0px 10px;
+    height: calc(100% - 100px);
     width: 100%;
     box-sizing: border-box;
  
+}
+.container .fix-item{
+    position: sticky;
+    left: 0;
+    background-color: #ffffff;
+    background-position: 0 0;
+    
+    display: flex;
+    justify-content: space-between;
+}
+.container .fix-item .fix-item-right{
+    display: flex;
+}
+.container .fix-item .paging-selected{
+    height: 30px;
+    margin: 0 10px;
+    padding: 0px 10px 0px 10px;
+    box-sizing: border-box;
+    border: 1px solid #9e9e9e;
+    outline: none;
+    cursor: pointer;
+}
+.container .fix-item .paging-selected:hover{
+    border: 1px solid #9e9e9e;
+}
+.container .fix-item-right .btn-paging{
+    padding: 0 8px;
+    margin: 0 8px;
+    cursor: pointer;
+}
+.container .fix-item-right .btn-page{
+    border: 1px dotted #35BF22;
+    height: 30px;
+    width: 32px;
 }
 .content-employee .container .container-item{
     display: flex;
@@ -265,4 +392,58 @@ button{
     cursor: pointer;
     background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -88px -200px;
 }
+table{
+    font-size: 13px;
+    border-collapse: separate;
+}
+.container .grid {
+    /* overflow: scroll; */
+    width: 100%;
+    height:calc(100% - 96px) ;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container .grid .table tr,td {
+    height: 40px;
+    padding: 5px 10px 5px 10px;
+    box-sizing: border-box;
+    border-right: 1px dotted #C7C7C7;
+    border-bottom: 1px solid #C7C7C7;
+    text-align: left;
+    cursor: pointer;
+}
+.container .grid .table th {
+    height: 34px;
+     border-right: 1px solid #C7C7C7;
+    border-bottom: 1px solid #C7C7C7;
+    color: #111111;
+    box-sizing: border-box;
+    position: sticky;
+    display: table-cell;
+    z-index: 2;
+    top: 0px;
+    min-width: 150px;
+    min-height: 34px;
+    padding: 5px 10px 3px 10px;
+    background-color:#ECEEF1;
+}
+.container .grid .table .check-box-table{
+    z-index: 3;
+    position: sticky;
+    left: 0;
+    top: 0;
+    min-width: 40px;
+    width: 40px;
+    max-width: 40px;
+
+}
+.container .grid .table .th-view-right{
+    border-right: none;
+    position: sticky;
+    right: 0;
+    z-index: 4;
+    border-left: 1px solid #c7c7c7;
+}
+
 </style>

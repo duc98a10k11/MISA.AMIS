@@ -31,3 +31,8 @@ D:\MF819_DUC\MISA.AMIS\API\MISA.AMIS\MISA.AMIS.Api\bin\Debug\net5.0\MISA.AMIS.Co
 D:\MF819_DUC\MISA.AMIS\API\MISA.AMIS\MISA.AMIS.Api\bin\Debug\net5.0\MISA.AMIS.Infrastructure.dll
 D:\MF819_DUC\MISA.AMIS\API\MISA.AMIS\MISA.AMIS.Api\bin\Debug\net5.0\Dapper.dll
 D:\MF819_DUC\MISA.AMIS\API\MISA.AMIS\MISA.AMIS.Api\bin\Debug\net5.0\MySqlConnector.dll
+D:\MF819_DUC\MISA.AMIS\API\MISA.AMIS\MISA.AMIS.Api\bin\Debug\net5.0\Newtonsoft.Json.dll
+D:\MF819_DUC\MISA.AMIS\API\MISA.AMIS\MISA.AMIS.Api\bin\Debug\net5.0\MISA.AMIS.Core.pdb
+D:\MF819_DUC\MISA.AMIS\API\MISA.AMIS\MISA.AMIS.Api\bin\Debug\net5.0\MISA.AMIS.Infrastructure.pdb
+D:\MF819_DUC\MISA.AMIS\API\MISA.AMIS\MISA.AMIS.Api\obj\Debug\net5.0\MISA.AMIS.Api.Properties.Resources.resources
+D:\MF819_DUC\MISA.AMIS\API\MISA.AMIS\MISA.AMIS.Api\obj\Debug\net5.0\MISA.AMIS.Api.csproj.GenerateResource.cache

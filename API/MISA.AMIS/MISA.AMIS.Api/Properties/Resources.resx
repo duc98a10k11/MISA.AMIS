@@ -123,6 +123,9 @@
   <data name="MISACode" xml:space="preserve">
     <value>002</value>
   </data>
+  <data name="Msg_Delete_Success" xml:space="preserve">
+    <value>Xóa thành công!</value>
+  </data>
   <data name="userMsg" xml:space="preserve">
     <value>Có lỗi xảy ra vui lòng liên hệ MISA</value>
   </data>

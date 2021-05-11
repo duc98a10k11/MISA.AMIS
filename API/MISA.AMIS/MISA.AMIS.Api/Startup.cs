@@ -11,6 +11,10 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using MISA.AMIS.Api.Middware;
 using MISA.AMIS.Core.Exceptions;
+using MISA.AMIS.Core.Interfaces.Repositories;
+using MISA.AMIS.Core.Interfaces.Services;
+using MISA.AMIS.Core.Services;
+using MISA.AMIS.Infrastructure.Repository;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -38,6 +42,19 @@ namespace MISA.AMIS.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MISA.AMIS.Api", Version = "v1" });
             });
+            services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
+            services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IEmployeeService, EmployeeService>();
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            services.AddScoped<IDepartmentService, DepartmentService>();
+
+            services.AddCors(options => options.AddPolicy("MyPolicy", builder =>
+                builder.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                )
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,7 +66,7 @@ namespace MISA.AMIS.Api
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MISA.AMIS.Api v1"));
             }
-
+            app.UseCors("MyPolicy");
             // Hook in the global error-handling middleware
             app.UseMiddleware(typeof(ErrorHandlingMiddleware));
             app.UseExceptionHandler(c => c.Run(async context =>

@@ -112,5 +112,15 @@ namespace MISA.AMIS.Infrastructure.Repository
                 return rowAffect;
             }
         }
+
+        public IEnumerable<MISAEntity> GetMISAEntities(int pageSize, int pageIndex)
+        {
+            using (dbConnection = new MySqlConnection(connectionString))
+            {
+                var rowAffect = dbConnection.Query<MISAEntity>($"Proc_Get{tableName}Filter", 
+                    commandType: CommandType.StoredProcedure);
+                return rowAffect;
+            }
+        }
     }
 }

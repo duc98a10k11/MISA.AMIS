@@ -49,5 +49,13 @@ namespace MISA.AMIS.Core.Interfaces.Services
         /// <returns></returns>
         /// CreateBy: LMDuc (07/05/2021)
         public int Delete(Guid entityId);
+        /// <summary>
+        /// Phân trang đối tượng.
+        /// </summary>
+        /// <param name="pageSize">số đối tượng trên 1 trang.</param>
+        /// <param name="pageIndex">Trang số bao nhiêu.</param>
+        /// <returns>Mảng danh sách đối tượng</returns>
+        /// CreatedBy: LMDuc (07/05/2021)
+        public IEnumerable<MISAEntity> GetMISAEntities(int pageSize, int pageIndex);
     }
 }
