@@ -45,17 +45,17 @@ namespace MISA.AMIS.Core.Entities
         /// Số chứng minh thư/căn cước công dân
         /// </summary>
         [MISARequired] // validate chuỗi rỗng
-        public string IndentifyNumber { get; set; }
+        public string IdentityNumber { get; set; }
 
         /// <summary>
         /// Ngày cấp
         /// </summary>
-        public DateTime DateOfIndentify { get; set; }
+        public DateTime DateOfIndentity { get; set; }
 
         /// <summary>
         /// Nơi cấp
         /// </summary>
-        public string PlaceOfIdentify { get; set; }
+        public string PlaceOfIdentity { get; set; }
 
         /// <summary>
         /// Email
