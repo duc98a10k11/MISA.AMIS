@@ -42,6 +42,7 @@ namespace MISA.AMIS.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MISA.AMIS.Api", Version = "v1" });
             });
+          
             services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
@@ -49,6 +50,7 @@ namespace MISA.AMIS.Api
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
             services.AddScoped<IDepartmentService, DepartmentService>();
 
+           
             services.AddCors(options => options.AddPolicy("MyPolicy", builder =>
                 builder.AllowAnyOrigin()
                         .AllowAnyMethod()

@@ -26,7 +26,7 @@ namespace MISA.AMIS.Api.Controllers
         /// </summary>
         /// <returns>EmployeeCode</returns>
         /// Created By: LMDuc (11/05/2021)
-        [HttpGet("maxEmployeeCode")]
+        [HttpGet("employeeCode")]
         public IActionResult GetCode()
         {
             var employeeCode = _employeeRepository.GetMaxEmployeeCode();
@@ -43,7 +43,7 @@ namespace MISA.AMIS.Api.Controllers
         /// <param name="pageIndex">trang số bao nhiêu</param>
         /// <param name="filter">chuỗi để lọc</param>
         /// <returns>Danh sách nhân viên</returns>
-        /// CreatedBy: NXCHIEN (09/05/2021)
+        /// Created By: LMDuc (11/05/2021)
         [HttpGet("Filter")]
         public IActionResult GetEmployees([FromQuery] int pageSize, int pageIndex, string filter)
         {
@@ -54,5 +54,6 @@ namespace MISA.AMIS.Api.Controllers
             }
             return NoContent();
         }
+
     }
 }

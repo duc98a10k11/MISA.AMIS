@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 
 namespace MISA.AMIS.Core.Services
 {
+    /// <summary>
+    /// Dịch vụ phòng ban
+    /// </summary>
+    /// CreatedBy : LMDuc (10/05/2021)
     public class DepartmentService : BaseService<Department>, IDepartmentService
     {
         IDepartmentRepository _departmentRepository;

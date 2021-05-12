@@ -104,5 +104,32 @@ namespace MISA.AMIS.Core.Properties {
                 return ResourceManager.GetString("Msg_Error_Requied", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Số chứng minh thư bị trùng.
+        /// </summary>
+        internal static string Msg_IdentifyNumber {
+            get {
+                return ResourceManager.GetString("Msg_IdentifyNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Không thực hiện được fillter.
+        /// </summary>
+        internal static string Msg_Param_Error {
+            get {
+                return ResourceManager.GetString("Msg_Param_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Số điện thoại  bị trùng.
+        /// </summary>
+        internal static string Msg_PhoneNumber {
+            get {
+                return ResourceManager.GetString("Msg_PhoneNumber", resourceCulture);
+            }
+        }
     }
 }

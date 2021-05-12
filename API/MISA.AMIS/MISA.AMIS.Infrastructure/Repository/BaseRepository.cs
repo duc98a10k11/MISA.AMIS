@@ -42,7 +42,7 @@ namespace MISA.AMIS.Infrastructure.Repository
             using (dbConnection = new MySqlConnection(connectionString))
             {
                 DynamicParameters parameters = new DynamicParameters();
-                parameters.Add($"@{tableName}Id", entityId);
+                parameters.Add("Id", entityId);
                 var rowsAffect = dbConnection.Execute($"Proc_Delete{tableName}", param: parameters,
                     commandType: CommandType.StoredProcedure);
                 return rowsAffect;
@@ -112,7 +112,15 @@ namespace MISA.AMIS.Infrastructure.Repository
                 return rowAffect;
             }
         }
-
+        /// <summary>
+        /// phân trang
+        /// </summary>
+        /// <param name="pageSize">số bản ghi trên 1 trang</param>
+        /// <param name="pageIndex">vị trí của trang</param>
+        /// <returns>
+        /// Danh sách bản ghi
+        /// </returns>
+        /// CreatedBy: LMDuc (12/05/2021)
         public IEnumerable<MISAEntity> GetMISAEntities(int pageSize, int pageIndex)
         {
             using (dbConnection = new MySqlConnection(connectionString))

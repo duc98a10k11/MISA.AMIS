@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace MISA.AMIS.Core.Interfaces.Services
 {
+    /// <summary>
+    /// interface phòng ban
+    /// </summary>
+    /// CreatedBy: LMDuc (10/05/2021)
     public interface IDepartmentService: IBaseService<Department>
     {
     }

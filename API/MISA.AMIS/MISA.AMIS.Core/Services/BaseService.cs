@@ -100,7 +100,7 @@ namespace MISA.AMIS.Core.Services
                     // kiểm tra giá trị
                     if (propertyValue.ToString().Length > maxLength)
                     {
-                        //var msgError = (maxLengthProperties[0] as MISAMaxLength).MsgError;
+                        
                         var msgError = $"{property.Name} " + Properties.Resources.Msg_Error_MaxLength + maxLength;
                         throw new EmployeeException(msgError);
                     }

@@ -132,7 +132,7 @@ namespace MISA.AMIS.Api.Controllers
             var rowAffects = _baseService.Delete(id);
             if (rowAffects > 0)
             {
-                return Ok(Properties.Resources.Msg_Delete_Success);
+                return Ok(rowAffects);
             }
             else
             {

@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace MISA.AMIS.Api.Middware
 {
+    /// <summary>
+    /// Middware để bắt Exceptions
+    /// </summary>
+    /// CreatedBy: LMDuc (27/04/2021)
     public class ErrorHandlingMiddleware
     {
         private readonly RequestDelegate _next;

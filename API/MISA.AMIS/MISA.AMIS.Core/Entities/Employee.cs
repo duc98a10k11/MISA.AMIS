@@ -50,16 +50,17 @@ namespace MISA.AMIS.Core.Entities
         /// <summary>
         /// Ngày cấp
         /// </summary>
-        public DateTime DateOfIndentity { get; set; }
+        public DateTime IdentityDate { get; set; }
 
         /// <summary>
         /// Nơi cấp
         /// </summary>
-        public string PlaceOfIdentity { get; set; }
+        public string IdentityPlace { get; set; }
 
         /// <summary>
         /// Email
         /// </summary>
+        [MISARequired] // validate chuỗi rỗng
         public string Email { get; set; }
 
         /// <summary>

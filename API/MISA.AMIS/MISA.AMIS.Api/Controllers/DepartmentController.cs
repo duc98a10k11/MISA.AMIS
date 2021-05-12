@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 
 namespace MISA.AMIS.Api.Controllers
 {
+    /// <summary>
+    /// Phòng ban controler
+    /// </summary>
+    /// CreatedBy : LMDuc (11/05/2021)
     [Route("api/v1/[controller]s")]
     [ApiController]
     public class DepartmentController : BaseController<Department>

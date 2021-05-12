@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace MISA.AMIS.Core.Entities
 {
+    /// <summary>
+    /// phân trang
+    /// </summary>
+    /// <typeparam name="MISAEntity"></typeparam>
+    /// CreatedBy: LMDuc (11/05/2021)
     public class Pagging<MISAEntity> where MISAEntity : class
     {
         /// <summary>

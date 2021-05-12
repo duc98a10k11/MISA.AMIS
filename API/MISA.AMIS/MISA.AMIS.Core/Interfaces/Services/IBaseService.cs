@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,7 +34,7 @@ namespace MISA.AMIS.Core.Interfaces.Services
         /// </summary>
         /// <param name="entity">object</param>
         /// <returns>Số bản ghi thêm thành công</returns>
-        //// CreateBy: LMDuc (07/05/2021)
+        /// CreateBy: LMDuc (07/05/2021)
         public int Insert(MISAEntity entity);
         /// <summary>
         /// Cập nhật dữ liệu
@@ -57,5 +58,6 @@ namespace MISA.AMIS.Core.Interfaces.Services
         /// <returns>Mảng danh sách đối tượng</returns>
         /// CreatedBy: LMDuc (07/05/2021)
         public IEnumerable<MISAEntity> GetMISAEntities(int pageSize, int pageIndex);
+        
     }
 }

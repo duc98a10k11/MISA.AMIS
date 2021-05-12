@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace MISA.AMIS.Core.Interfaces.Repositories
 {
+    /// <summary>
+    /// interface khách hàng
+    /// </summary>
+    /// CreatedBy: LMDuc (10/05/2021)
     public interface IDepartmentRepository:IBaseRepository<Department>
     {
     }
