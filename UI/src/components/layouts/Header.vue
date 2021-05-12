@@ -1,47 +1,50 @@
 <template>
     <div class="header">
-        <div class="header-icon three-stripes"></div>
-        <div class="flex header-branch">
-            <div class="header-branch-name">CÔNG TY CỔ PHẦN MISA</div>
-            <div class="header-icon chevron-right"></div>
+        <div class="header-left">
+            <div class="header-icon three-tripes"></div>
+            <div class="flex header-branch">
+                <div class="header-branch-name">CÔNG TY CỔ PHẦN MISA</div>
+                <div class="header-icon chevron-right"></div>
+            </div>
+            <div class="flex db-content">
+                <div class="db-icon"></div>
+                <div class="db-name">DC-01</div>
+            </div>
         </div>
-        <div class="flex db-content">
-            <div class="db-icon"></div>
-            <div class="db-name">DC-01</div>
-        </div>
-        <div class="space-beetween"></div>
-        <div class="header-input margin">
-            <input type="text" placeholder="Nhập từ khóa tìm kiếm" class="input-search">
-        </div>
-        <button class="button">
-            <div class="flex button-text">
-                <div class="header-icon category"></div>
+        <div class="header-right">
+            <div class="header-input margin">
+                <input type="text" placeholder="Nhập từ khóa tìm kiếm" class="input-search">
             </div>
-        </button>
-        <button class="button">
-            <div class="flex button-text">
-                <div class="header-icon setting__nav"></div>
-            </div>
-        </button>
-        <button class="button">
-            <div class="flex button-text">
-                <div class="header-icon chat__nav"></div>
-            </div>
-        </button>
-        <button class="button">
-            <div class="flex button-text">
-                <div class="header-icon help__nav"></div>
-            </div>
-        </button>
-        <button class="button">
-            <div class="flex button-text">
-                <div class="header-icon bell__nav"></div>
-            </div>
-        </button>
-        <div class="flex header-branch">
+            <button class="button">
+                <div class="flex button-text">
+                    <div class="header-icon category"></div>
+                </div>
+            </button>
+            <button class="button">
+                <div class="flex button-text">
+                    <div class="header-icon setting__nav"></div>
+                </div>
+            </button>
+            <button class="button">
+                <div class="flex button-text">
+                    <div class="header-icon chat__nav"></div>
+                </div>
+            </button>
+            <button class="button">
+                <div class="flex button-text">
+                    <div class="header-icon help__nav"></div>
+                </div>
+            </button>
+            <button class="button">
+                <div class="flex button-text">
+                    <div class="header-icon bell__nav"></div>
+                </div>
+            </button>
+            <div class="flex header-branch">
             <div class="header-icon user-avatar"></div>
             <div class="header-branch-name">Lê Minh Đức</div>
             <div class="header-icon chevron-right"></div>
+        </div>
         </div>
     </div>
 </template>
@@ -51,7 +54,9 @@ export default {
 }
 </script>
 <style scoped>
+
 .header{
+
     position: absolute;
     top: 0;
     left: 178px;
@@ -60,6 +65,18 @@ export default {
     display: flex !important;
     align-items: center;
     justify-content: space-between;
+}
+.header .header-left{
+    display: flex;
+    align-items: center;
+    line-height: 32px;
+    box-sizing: border-box;
+}
+.header .header-right{
+    display: flex;
+    align-items: center;
+    line-height: 32px;
+    box-sizing: border-box;
 }
 .header-icon{
     background: url("../../assets/Sprites.5f05e81f.svg") no-repeat;
@@ -75,6 +92,10 @@ export default {
     display: flex;
     align-items: center ;
     cursor: pointer;
+}
+.header-branch-name{
+    font-size: 13px;
+    line-height: 32px;
 }
 .header .db-content{
     border: 1px solid #ebedf0;
@@ -103,7 +124,7 @@ export default {
     transition: all .2s ease;
     color: #111;
 }
-.three-stripes {
+.three-tripes {
     background-position: -843px -30px;
 }
 .chevron-right {
@@ -111,8 +132,8 @@ export default {
     transform: rotate(90deg); 
 }
 .flex{
-    display: flex !important;
-    align-items: center !important;
+    display: flex ;
+    align-items: center ;
 }
 .header .space-beetween{
     width: 20%;
@@ -171,5 +192,10 @@ export default {
     width: 32px;
     height: 32px;
     border-radius: 50%;
+}
+@media screen and (max-width: 1024px){
+    .input-search{
+        width: 100px;
+    }
 }
 </style>

@@ -202,7 +202,7 @@ export default {
     */
     btnCloseClick(){
       this.messageEmail = null;     
-      this.employee = null
+      // this.employee = null
       this.$emit('hideDialogNotLoad');
     },
 
